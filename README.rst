@@ -20,6 +20,9 @@ Commands
    It is overwritten by static ``ndots`` attribute (if exists) of
    model scenario.
 
+-P <number of threads>:
+   A number of parallel versions to launch.
+
 -S <model scenario>:
    A path for model scenario script (a ``python`` program).
    The file will owerride the one in a cwd.
