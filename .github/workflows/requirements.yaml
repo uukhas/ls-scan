@@ -1,11 +1,19 @@
-name: Update requirements
-on: [push]
+name: Check licenses
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  DEP_PATH: requirements.txt
+
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@master
 
       - name: Install
         run: |
@@ -19,3 +27,13 @@ jobs:
            git add requirements.txt
            git commit -m "Updated $INPUT_PROJECT_NAME requirements file" || exit 0
            git push -u origin HEAD
+
+  check:
+    needs: update
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Python License Check
+        uses: aufdenpunkt/python-license-check-action@main
