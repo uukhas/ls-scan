@@ -11,3 +11,10 @@ jobs:
         run: |
            pip install pipreqs
            pipreqs --force --mode gt
+
+      - name: Commit files
+        run: |
+           git config --global user.name ${GITHUB_ACTOR}
+           git add requirements.txt && \
+              git commit -m "Updated $INPUT_PROJECT_NAME requirements file" && \
+              git push -u origin HEAD
