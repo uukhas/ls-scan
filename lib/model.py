@@ -90,7 +90,6 @@ def load_model(args, Scenario):
     default_slha = Path(args.slha).resolve()
     local_slha = Path.cwd().joinpath(default_slha.name).resolve()
 
-    # Move to CWD.
     if not local_slha.exists():
         print('File '+str(local_slha)+' does not exist.')
         print('Copying '+str(default_slha)+' to '+str(Path.cwd())+'.')
