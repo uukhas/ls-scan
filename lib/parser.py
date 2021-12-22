@@ -1,5 +1,4 @@
 import argparse
-from regex import search
 from pathlib import Path
 
 class Parser:
