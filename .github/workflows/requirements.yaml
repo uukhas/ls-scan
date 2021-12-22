@@ -5,9 +5,6 @@ on:
     branches:
       - master
 
-env:
-  DEP_PATH: requirements.txt
-
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -36,4 +33,6 @@ jobs:
         uses: actions/checkout@master
 
       - name: Python License Check
-        uses: aufdenpunkt/python-license-check-action@main
+        run: |
+           pip install liccheck
+           liccheck -s .strategy.ini -r requirements.txt
