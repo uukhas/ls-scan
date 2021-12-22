@@ -35,4 +35,5 @@ jobs:
       - name: Python License Check
         run: |
            pip install liccheck
-           liccheck -s .strategy.ini -r requirements.txt
+           pip install -r requirements.txt
+           liccheck -s .strategy -r requirements.txt --no-deps
