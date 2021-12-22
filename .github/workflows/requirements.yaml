@@ -4,8 +4,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Self test
-        id: selftest
+      - name: Checkout
+        uses: actions/checkout@v2
 
-        uses: ryan-rozario/pipreqs-action-cpy@master
+      - name: Install
+        run: |
+           pip install pipreqs
+           pipreqs --force --mode gt
