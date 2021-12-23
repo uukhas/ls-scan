@@ -27,14 +27,8 @@ jobs:
              echo "CHECK=false" >> "${GITHUB_ENV}"
            git push -u origin HEAD
 
-  check:
-    if: ${{ env.CHECK == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
-
       - name: Python License Check
+        if: ${{ env.CHECK == 'true' }}
         run: |
            pip install liccheck
            pip install -r requirements.txt
