@@ -28,7 +28,7 @@ jobs:
            git push -u origin HEAD
 
   check:
-    if: env.CHECK == 'true'
+    if: "${{ env.CHECK }}" == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
