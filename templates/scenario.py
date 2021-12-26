@@ -8,4 +8,4 @@ class Scenario:
         self.input = dict(
             MODSEL_6 = 1
         )
-        self.names = [*self.input] + ['MASS_35'] # Entries to save.
+        self.output = [*self.input] + ['MASS_35'] # Entries to save.
