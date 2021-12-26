@@ -29,7 +29,7 @@ def constructor(self, executable, scenario):
     for parameter, value in scenario.input.items():
         self.data[Class.input_lines[parameter]][-1] = str(value)
 
-def run(self):
+def run(self, local = True):
     self.temporary_dir = Path.cwd().joinpath('wd_'+str(random.random()))
     self.temporary_dir.mkdir()
     self.in_slha  = self.temporary_dir.joinpath('in.slha')
@@ -37,8 +37,12 @@ def run(self):
 
     with open(self.in_slha, 'w', newline='') as f:
         out = csv.writer(f, delimiter=' ')
-        for row in self.data:
-            out.writerow(row)
+        if local:
+            for row in self.data:
+                out.writerow(row)
+        else:
+            for row in self.__class__.data:
+                out.writerow(row)
 
     command = [self.exe,
         '--slha-input-file=' + str(self.in_slha),
@@ -52,7 +56,7 @@ def clear(self):
     self.temporary_dir.rmdir()
 
 def make_output_lines(self):
-    self.run()
+    self.run(local = False)
     new_data = data_and_names(self.out_slha)
 
     lines = {}
