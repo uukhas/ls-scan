@@ -1,0 +1,27 @@
+- Fetch all commits.
+- Fixing action
+- A typo fixed.
+- Workflow is moved to a correct place.
+- Synonyms added.
+- Explanations, how to create the scenario file.
+- Use working slha for setting the model up.
+- Fixed a typo.
+- Old conventions fixed.
+- Do not check if there is no reason.
+- Do not check if there is no reason.
+- Do not check if there is no reason.
+- Do not check if there is no reason.
+- Remove one workflow.
+- A small change.
+- Remove obsolete package.
+- Modify the action.
+- Check licenses.
+- Check licenses.
+- Exit 0 was added.
+- Some fixes.
+- Small changes to automatic email.
+- Modify the action.
+- Create codeql-analysis.yml
+- Force overriding.
+- README updated.
+- Requirements updater.
