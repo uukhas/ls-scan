@@ -54,6 +54,16 @@ How to write scenario?
 |   Block C            |         'D_4_5'            |   the output Les Houches|
 |    3 3e+2            |       ]                    |   file, created after   |
 |                      |                            |   the run of            |
-|   Block D            |                            |   FlexibleSUSY.         |
-|    4 5 4e+2          |                            |                         |
+|   Block D            +----------------------------+   FlexibleSUSY.         |
+|    4 5 4e+2          |Or use dictionary for making|                         |
+|                      |synonyms:                   |                         |
+|                      |                            |                         |
+|                      |.. code-block:: python      |                         |
+|                      |                            |                         |
+|                      |       self.output = dict(  |                         |
+|                      |         C_3 = 'name 1',    |                         |
+|                      |         D_4_5 = 'name 2'   |                         |
+|                      |       )                    |                         |
+|                      |                            |                         |
+|                      |                            |                         |
 +----------------------+----------------------------+-------------------------+
