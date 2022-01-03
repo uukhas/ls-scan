@@ -1,3 +1,4 @@
+- docs: Synonyms documented.
 - Fetch all commits.
 - Fixing action
 - A typo fixed.
