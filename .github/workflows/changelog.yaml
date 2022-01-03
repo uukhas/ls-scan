@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
+        with:
+           fetch-depth: 0
 
       - name: Commit and push changes
         run: |
@@ -19,7 +21,6 @@ jobs:
            git log $(git describe --tags --abbrev=0)..HEAD --pretty="- %s" \
               | sed '/^- \(Merge\|Updated\)/d' \
               > changelog.rst
-           git describe --tags
            git add changelog.rst
 
            git commit -m "Updated changelog file" && \
