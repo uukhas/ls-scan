@@ -19,7 +19,7 @@ jobs:
            git log $(git describe --tags --abbrev=0)..HEAD --pretty="- %s" \
               | sed '/^- \(Merge\|Updated\)/d' \
               > changelog.rst
-           git add changelog.txt
+           git add changelog.rst
 
            git commit -m "Updated changelog file" && \
               git push -u origin HEAD
