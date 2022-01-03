@@ -1,3 +1,5 @@
+- fix: Name of action.
+- fix: Sequential evaluation of actions.
 - docs: Synonyms documented.
 - Fetch all commits.
 - Fixing action
