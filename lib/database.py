@@ -11,7 +11,13 @@ class Database:
         config = {'sqlite': {'driver': 'sqlite', 'database': scenario_name}}
         self.__db = DatabaseManager(config)
         with Schema(self.__db).create(self.__table) as table:
-            for col in Scenario(1).output:
+            out = Scenario(1).output
+            if isinstance(out, list):
+                columns = out
+            else:
+                columns = [*out.values()]
+
+            for col in columns:
                 table.double(str(col), 15).nullable()
 
     def insert(self, data):

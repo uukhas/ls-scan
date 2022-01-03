@@ -22,7 +22,7 @@ jobs:
            git config --global user.name "${GITHUB_ACTOR}"
            git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
            git add requirements.txt
-           git commit -m "Updated ${INPUT_PROJECT_NAME} requirements file" && \
+           git commit -m "Updated requirements file" && \
              echo "CHECK=true" >> "${GITHUB_ENV}" || \
              echo "CHECK=false" >> "${GITHUB_ENV}"
            git push -u origin HEAD

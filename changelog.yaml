@@ -1,0 +1,26 @@
+name: Change log update
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Commit and push changes
+        run: |
+           git config --global user.name "${GITHUB_ACTOR}"
+           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+           git log $(git describe --tags --abbrev=0)..HEAD --pretty="- %s" \
+              | sed '/^- \(Merge\|Updated\)/d' \
+              > changelog.rst
+           git add changelog.txt
+
+           git commit -m "Updated changelog file" && \
+              git push -u origin HEAD
+

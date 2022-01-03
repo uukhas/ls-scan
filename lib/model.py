@@ -60,8 +60,15 @@ def make_output_lines(self):
     new_data = data_and_names(self.out_slha)
 
     lines = {}
-    for parameter in self.scenario.output:
-        lines[parameter] = new_data[1][parameter]
+    out = self.scenario.output
+    if isinstance(out, list):
+        for i in out:
+            lines[i] = new_data[1][i]
+    else:
+        parameters = [*out.keys()]
+        for p in parameters:
+            lines[out[p]] = new_data[1][p]
+
     lines = dict(sorted(lines.items(), key=lambda item: item[1]))
 
     self.__class__.output_lines = lines
