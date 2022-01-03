@@ -2,7 +2,7 @@ name: Change log update
 
 on:
   workflow_run:
-    workflows: ["requirements"]
+    workflows: ["Check licenses"]
     types:
       - completed
 
