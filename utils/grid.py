@@ -4,13 +4,14 @@ import math
 class SimpleGrid:
     """
     Creates a simple rectangular grid of any dimensions.
+    Boundary elements included.
 
     To use:
     >>> grid = SimpleGrid(first=(-3, -2, 2), second=(-1, 1, 11))
     >>> grid.first(1) # here i=1: floor(i/11) % 2
-    -3
-    >>> grid.second(35) # here i=35: i % 11
-    -0.6
+    -3.0
+    >>> grid.second(21) # here i=21: i % 11
+    1.0
     """
     def __init__(self, **kwargs):
         items = sorted(kwargs.items(),
