@@ -1,3 +1,4 @@
+- Fixed explanation.
 - fix: Name of action.
 - fix: Sequential evaluation of actions.
 - docs: Synonyms documented.
